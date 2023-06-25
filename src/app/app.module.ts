@@ -44,6 +44,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatIconModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
-  bootstrap: [LoginComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
