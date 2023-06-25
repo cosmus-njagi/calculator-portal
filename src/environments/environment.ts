@@ -7,8 +7,8 @@ export const environment = {
 
   url: {
     // base url
-    base: 'https://127.0.0.1:8080/api',
-    login: 'login',
+    base: 'http://localhost:8095/api',
+    login: 'authenticate',
     calculator: 'calculator',
   },
 };

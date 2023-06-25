@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth-guard/auth.guard';
 import { MatIconModule } from '@angular/material/icon';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsType: 'circle',
@@ -25,7 +26,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent],
   providers: [AuthGuard],
   imports: [
     BrowserModule,
