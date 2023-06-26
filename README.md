@@ -6,8 +6,8 @@
 
 ## Development server<br>
 -Run npm install to set up dependencies.<br>
--Run `ng serve` for a dev server. 
--Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.<br>
+-Run `ng serve` for a dev server. <br>
+-Navigate to `http://localhost:4200/`. <br> -The application will automatically reload if you change any of the source files.<br>
 <br><br><br>
 
 
