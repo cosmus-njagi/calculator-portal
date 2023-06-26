@@ -36,8 +36,12 @@
 
 
 
-##loan schedule table<br>
+#loan schedule table<br>
 - a table like this below will be populated depending on the inputs selected<br>
 - user can export the data to a pdf<br>
 ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/97d93cc8-f14a-4a0a-b743-c6552148436c)
 <br><br><br><br>
+
+#Downloaded pdf doc<br>
+![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/bfdbff41-4484-4e37-9649-1a1f475dc5a0)
+
