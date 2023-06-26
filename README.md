@@ -13,23 +13,23 @@
 
 
 # Login page<br>
-- The portal uses In-memory authentication has been used with these credentials:<br><br>
+The portal uses In-memory authentication has been used with these credentials:<br>
 - username: cosmus<br>
 - password: P@ssw0rd<br>
 ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/63d9f686-7c3e-4e14-b32a-0218011016cd)
 
-<br><br><br><br>
+<br><br><br>
 
 
 
 # dashboard<br>
-- on the dashboard capture:<br>
+on the dashboard capture:<br>
 - amount.<br>
 - payment Frequency.<br>
 - loan Period.<br>
 - start Date.<br>
 - interest Type.<br>
-- click calculate to generate loan schedule; clear to reset form.<br>
+click calculate to generate loan schedule; clear to reset form.<br>
 ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/96c8d17d-a1a9-43c4-8fdc-4e459a7bf664)
 
 <br><br><br><br>
