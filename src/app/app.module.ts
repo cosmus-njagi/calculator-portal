@@ -17,6 +17,10 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth-guard/auth.guard';
 import { MatIconModule } from '@angular/material/icon';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatTableModule } from '@angular/material/table';
+import { CurrencyFormatPipe } from './custom-pipe/currency-format.pipe';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { PdfDownloadService } from 'src/services/PdfDownloadService.service';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsType: 'circle',
@@ -26,8 +30,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent],
-  providers: [AuthGuard],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    CurrencyFormatPipe,
+  ],
+  providers: [AuthGuard, PdfDownloadService, CurrencyFormatPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,6 +51,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MatCardModule,
     HttpClientModule,
     MatIconModule,
+    MatTableModule,
+    MatExpansionModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
   bootstrap: [AppComponent],

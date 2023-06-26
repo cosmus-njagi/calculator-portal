@@ -9,7 +9,7 @@ export const environment = {
     // base url
     base: 'http://localhost:8095/api',
     login: 'authenticate',
-    calculator: 'calculator',
+    calculator: 'calculateLoan',
   },
 };
 
