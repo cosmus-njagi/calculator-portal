@@ -5,23 +5,23 @@
 
 
 ## Development server
--Run npm install to set up dependencies.
--Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+-Run npm install to set up dependencies.<br>
+-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.<br><br><br>
 
 
 
-##Login page
--In-memory authentication has been used with credentials
--username: cosmus
--password: P@ssw0rd
+##Login page<br>
+-In-memory authentication has been used with credentials<br>
+-username: cosmus<br>
+-password: P@ssw0rd<br>
 ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/63d9f686-7c3e-4e14-b32a-0218011016cd)
 
-
+<br><br><br><br>
 
 
 
 ##dashboard
--on the dashboard capture:
+-on the dashboard capture:<br>
 -amount.
 -payment Frequency.
 -loan Period.
