@@ -7,6 +7,7 @@ import { AuthService } from 'src/services/auth-service.service';
 import { PdfDownloadService } from 'src/services/PdfDownloadService.service';
 import { CurrencyFormatPipe } from '../custom-pipe/currency-format.pipe';
 import { AlertService } from 'src/services/alert-service.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -22,13 +23,17 @@ export class DashboardComponent implements OnInit {
     'dueDate',
     'totalRepayment',
   ];
-  installments: any;
+  installments: any[] = [];
   showTable: boolean = false;
   exciseDuty: number = 0;
   interestRate: number = 0;
   legalFees: number = 0;
   takeHomeAmount: number = 0;
   processingFees: number = 0;
+  greet: string = '';
+  data: any;
+  currentPage: number = 1;
+  totalPages!: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,15 +47,15 @@ export class DashboardComponent implements OnInit {
     this.calculatorForm = this.formBuilder.group({
       amount: ['', [Validators.required, Validators.min(50000)]],
       paymentFrequency: ['', Validators.required],
-      loanPeriod: ['', [Validators.required, Validators.max(12)]],
+      loanPeriod: ['', [Validators.required, Validators.max(48)]],
       startDate: ['', Validators.required],
       interestType: ['', Validators.required],
     });
   }
 
-  ngAfterViewInit() {}
   ngOnInit() {
-    console.log('opening dashboard');
+    this.greetings();
+    this.fetchData();
   }
 
   logOutFunction() {
@@ -73,6 +78,7 @@ export class DashboardComponent implements OnInit {
         this.legalFees = response['legalFees'];
         this.processingFees = response['processingFees'];
         this.takeHomeAmount = parseFloat(response['takeHomeAmount']);
+        this.fetchData(); // Fetch data after assigning the installments property
       },
       error: (error) => {
         // Handle the error
@@ -85,12 +91,11 @@ export class DashboardComponent implements OnInit {
   exportTableAsPdf() {
     let tableHeaders = [
       'No.',
-      '	Due Date',
-      '	Starting Balance',
-      '	Installment Amount',
+      'Due Date',
+      'Starting Balance',
+      'Installment Amount',
       'Interest Amount',
-
-      '	Total Repayment',
+      'Total Repayment',
     ];
     let description = [
       {
@@ -120,8 +125,44 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  fetchData() {
+    const startIndex = (this.currentPage - 1) * 10;
+    const endIndex = startIndex + 10;
+    this.data = this.installments.slice(startIndex, endIndex);
+
+    // Calculate the total number of pages based on the total data count
+    this.totalPages = Math.ceil(this.installments.length / 10);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.fetchData();
+    }
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.fetchData();
+    }
+  }
+
   //send pdf to email
   sendEmail() {
     this.alertService.sendEmail();
+  }
+
+  // greetings
+  greetings() {
+    let myDate = new Date();
+    let hrs = myDate.getHours();
+    if (hrs < 12) {
+      this.greet = 'Good Morning';
+    } else if (hrs >= 12 && hrs <= 16) {
+      this.greet = 'Good Afternoon';
+    } else if (hrs >= 17 && hrs <= 24) {
+      this.greet = 'Good Evening';
+    }
   }
 }

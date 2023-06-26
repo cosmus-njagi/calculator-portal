@@ -2,10 +2,11 @@
 <div class="toolbar" role="banner">
   <img
     width="40"
+    class="rounded-lg"
     alt="PYCS Logo"
     src="https://media.licdn.com/dms/image/C4D0BAQGljutcNnIrAA/company-logo_200_200/0/1621431508421?e=2147483647&v=beta&t=Z7k98OhBqCUx-h1yFIVneFdjwpGisXTViYNMMBh6J58"
   />
-  <span>Welcome back, Cosmus</span>
+  <span> {{ greet }}, <strong>Cosmus</strong> 👋</span>
   <div class="spacer"></div>
 
   <button (click)="logOutFunction()">LOGOUT</button>
@@ -68,7 +69,7 @@
             Loan period is required
           </mat-error>
           <mat-error *ngIf="calculatorForm.get('loanPeriod')?.hasError('max')">
-            Period must be less than or equal to 12 months
+            Period must be less than or equal to 48 months
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="w-full flex-1 mx-1">
@@ -147,9 +148,11 @@
         <span class="font-semibold">Interest Rate:</span> {{ interestRate }} %
         <br />
         <span class="font-semibold">Processing Fees:</span>
-        {{ processingFees }} <br />
-        <span class="font-semibold">Excise Duty:</span> {{ exciseDuty }} <br />
-        <span class="font-semibold">Legal Fees:</span> {{ legalFees }} <br />
+        {{ processingFees | currencyFormat }} <br />
+        <span class="font-semibold">Excise Duty:</span>
+        {{ exciseDuty | currencyFormat }} <br />
+        <span class="font-semibold">Legal Fees:</span>
+        {{ legalFees | currencyFormat }} <br />
         <span class="font-semibold">Take Home Amount:</span>
         {{ takeHomeAmount | currencyFormat }} <br />
 
@@ -176,7 +179,7 @@
       </div>
       <table
         mat-table
-        [dataSource]="installments"
+        [dataSource]="data"
         class="min-w-full border border-gray-200"
       >
         <!-- Column definitions -->
@@ -270,6 +273,25 @@
           class="bg-white even:bg-gray-50"
         ></tr>
       </table>
+      <div class="pagination flex items-center justify-center mt-4">
+        <button
+          class="px-4 py-2 mr-2 bg-blue-500 text-white rounded-md"
+          (click)="previousPage()"
+          [disabled]="currentPage === 1"
+        >
+          Previous
+        </button>
+        <span class="text-lg font-semibold">
+          {{ currentPage }} / {{ totalPages }}
+        </span>
+        <button
+          class="px-4 py-2 ml-2 bg-blue-500 text-white rounded-md"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages"
+        >
+          Next
+        </button>
+      </div>
     </div>
     <!-- end table -->
   </div>
