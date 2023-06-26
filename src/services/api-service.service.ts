@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   private apiUrl: string = environment.url.base;
-
   constructor(private http: HttpClient) {}
 
   private handleError(error: HttpErrorResponse): Observable<never> {
@@ -58,5 +57,24 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
 
-  // Add more methods for other HTTP verbs (e.g., PUT, PATCH, DELETE) if needed
+  postWithHeaders<T>(
+    endpoint: string,
+    data: any,
+    options?: object
+  ): Observable<T> {
+    const token = localStorage.getItem('token');
+    console.log('token ##', token);
+    const url = `${this.apiUrl}/${endpoint}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      }),
+      ...options,
+    };
+
+    return this.http
+      .post<T>(url, data, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
 }
