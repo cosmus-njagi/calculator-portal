@@ -1,13 +1,14 @@
 # LoanCalculator
-<br><br>
+<br>
 -This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.<br>
 -Node version 16.15.1 was used
 <br><br><br>
 
 ## Development server<br>
 -Run npm install to set up dependencies.<br>
--Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-<br><br><br><br>
+-Run `ng serve` for a dev server. 
+-Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.<br>
+<br><br><br>
 
 
 
