@@ -22,12 +22,12 @@
 
 ##dashboard
 -on the dashboard capture:
--amount
--payment Frequency
--loan Period
--start Date
--interest Type
--click calculate to generate loan schedule; clear to reset form
+-amount.
+-payment Frequency.
+-loan Period.
+-start Date.
+-interest Type.
+-click calculate to generate loan schedule; clear to reset form.
 ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/96c8d17d-a1a9-43c4-8fdc-4e459a7bf664)
 
 
