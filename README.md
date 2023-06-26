@@ -31,6 +31,7 @@ on the dashboard capture:<br>
 - start Date.<br>
 - interest Type.<br>
 Click calculate to generate loan schedule; clear to reset form.<br>
+
 ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/96c8d17d-a1a9-43c4-8fdc-4e459a7bf664)
 
 <br><br><br>
