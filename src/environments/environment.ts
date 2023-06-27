@@ -10,6 +10,7 @@ export const environment = {
     base: 'http://localhost:8095/api',
     login: 'authenticate',
     calculator: 'calculateLoan',
+    email: 'sendEmail',
   },
 };
 

@@ -88,15 +88,29 @@ export class ApiService {
   }
 
   sendEmailWithAttachment(
-    email: string,
+    to: string,
+    subject: string,
+    text: string,
     attachment: File,
-    endpoint: string
+    endpoint: string,
+    options?: object
   ): Observable<any> {
     const url = `${this.apiUrl}/${endpoint}`;
+    const token = localStorage.getItem('token');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+      ...options,
+    };
+
     const formData: FormData = new FormData();
-    formData.append('email', email);
+    formData.append('to', to);
+    formData.append('subject', subject);
+    formData.append('text', text);
     formData.append('attachment', attachment);
 
-    return this.http.post(url, formData);
+    return this.http.post(url, formData, httpOptions);
   }
 }
