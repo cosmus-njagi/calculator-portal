@@ -47,3 +47,18 @@ Click calculate to generate loan schedule; clear to reset form.<br>
 # Downloaded pdf doc<br>
 ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/bfdbff41-4484-4e37-9649-1a1f475dc5a0)
 
+# Send to email
+- provide a valid email address in the interface
+
+![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/937e00ac-3b81-45e8-a86d-be3d9b3d01c8)
+
+
+- If success, an interface like this will pop up
+- ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/110c76ec-537d-4f7c-9538-26bc30f90e89)
+
+
+- a screenshot showing the received email attachment
+
+  ![image](https://github.com/cosmus-njagi/calculator-portal/assets/74013713/70450649-ee81-496a-b1a9-6ac55c62ace6)
+
+
