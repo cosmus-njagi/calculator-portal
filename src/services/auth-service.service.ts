@@ -22,6 +22,8 @@ export class AuthService {
   }
 
   logout(): void {
+    console.log('## Calling logout ##');
+
     localStorage.removeItem('token');
     this.isAuthenticated = false;
     this.router.navigate(['/login']); // Redirect to the login page after logout

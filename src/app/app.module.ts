@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CurrencyFormatPipe } from './custom-pipe/currency-format.pipe';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PdfDownloadService } from 'src/services/PdfDownloadService.service';
+import { AlertService } from 'src/services/alert-service.service';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsType: 'circle',
@@ -36,7 +37,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     DashboardComponent,
     CurrencyFormatPipe,
   ],
-  providers: [AuthGuard, PdfDownloadService, CurrencyFormatPipe],
+  providers: [AuthGuard, PdfDownloadService, CurrencyFormatPipe, AlertService],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -7,16 +7,21 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './auth-service.service';
+import { AlertService } from './alert-service.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   private apiUrl: string = environment.url.base;
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private alertService: AlertService
+  ) {}
 
   private handleError(error: HttpErrorResponse): Observable<never> {
-    // You can customize the error handling based on your requirements
     let errorMessage = 'An error occurred';
     if (error.error instanceof ErrorEvent) {
       // Client-side error
@@ -24,6 +29,10 @@ export class ApiService {
     } else {
       // Server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      if (error.status === 403 || error.status === 401) {
+        this.alertService.titlelessWarning('Token expired. Login to proceed');
+        this.authService.logout();
+      }
     }
     console.error(errorMessage);
     return throwError(errorMessage);
@@ -76,5 +85,18 @@ export class ApiService {
     return this.http
       .post<T>(url, data, httpOptions)
       .pipe(catchError(this.handleError));
+  }
+
+  sendEmailWithAttachment(
+    email: string,
+    attachment: File,
+    endpoint: string
+  ): Observable<any> {
+    const url = `${this.apiUrl}/${endpoint}`;
+    const formData: FormData = new FormData();
+    formData.append('email', email);
+    formData.append('attachment', attachment);
+
+    return this.http.post(url, formData);
   }
 }
